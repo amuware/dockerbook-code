@@ -1,22 +1,9 @@
 pipeline {
     agent any
-
     stages {
-        stage('Build') {
+        stage('Example') {
             steps {
-                echo 'Building..'
-                sh 'make' 
-                archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
-            }
-        }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
+                echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
             }
         }
     }
